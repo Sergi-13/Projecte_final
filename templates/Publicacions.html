@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Publicació</title>
+        <link rel="stylesheet" type="text/css" href="../media/Publicacions.css">
+    </head>
+    {% extends "Base.html" %}
+    {% block content %}
+        <body>
+        <div class="col-xs-1" align="center" id="titol">Publicacions</div>
+        <div class="row">
+            {% if personatges %}
+                {% for personatge in personatges %}
+                    <div class="personatge">
+                        <a href="/personatge/{{ personatge.pk }}"><img class="imatge" src="{{ personatge.imatge }}"></a>
+                        <br>
+                        <a href="/personatge/{{ personatge.pk }}">{{ personatge.nom }}</a>
+                    </div>
+                {% endfor %}
+            {% else %}
+                <p>No hi ha personatges</p>
+            {% endif %}
+        </div>
+        </body>
+    {% endblock %}
+</html>

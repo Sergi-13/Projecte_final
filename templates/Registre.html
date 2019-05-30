@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Registra't</title>
+        <link rel="stylesheet" type="text/css" href="../media/Formularis.css"/>
+    </head>
+    <body>
+        {% extends "Base.html" %}
+        {% block content %}
+            <div class="row">
+                <div class="col-lg-12 maincontent">
+                    <div class="col-xs-1" align="center" id="titol">Resgistra't</div>
+                    <div class="col-lg-12" align="left" id="taula">
+                        <form id="login-form" method="post" action="" enctype="multipart/form-data" role="form" style="display: block;">
+                            {% csrf_token %}
+                            <table class="col-xs-12" align="center">
+                                <tr>
+                                    <td class="dades">Usuari:</td>
+                                    <td class="form">{{ formulari.username }}</td>
+                                </tr>
+                                <tr>
+                                    <td class="dades">Contrsenya:</td>
+                                    <td class="form">{{ formulari.password1 }}</td>
+                                </tr>
+                                <tr>
+                                    <td class="dades">Repeteix la contrasenya:</td>
+                                    <td class="form">{{ formulari.password2 }}</td>
+                                </tr>
+                                <tr>
+                                    <td class="dades">Correu:</td>
+                                    <td class="form">{{ formulari.email }}</td>
+                                </tr>
+                                <tr>
+                                    <td class="dades">Imatge de perfil:</td>
+                                    <td class="form">{{ formulari.imatge }}</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2" align="center" id="boto">
+                                        <input type="submit" class="btn btn-primary" value="Crea el teu compte!">
+                                        <p>Ja tens compte? Inicia sessió!</p>
+                                        <a  href="{% url 'login' %}" class="btn btn-primary">Inicia sessió!</a>
+                                    </td>
+                                </tr>
+                            </table>
+                            {% if POST %}
+                                {{ formulari.errors }}
+                            {% endif %}
+                        </form>
+                    </div>
+                </div>
+            </div>
+        {% endblock %}
+    </body>
+</html>

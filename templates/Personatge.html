@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% extends "Base.html" %}
+    <title>{{ personatge.nom }}</title>
+    <link rel="stylesheet" type="text/css" href="../media/Personatge.css"/>
+</head>
+<body>
+    {% block content %}
+        <div id="row">
+            <div id="personatge">
+                <p id="titol">{{ personatge.nom }}</p>
+                <div id="imatge">
+                    <img src={{ personatge.imatge }}/>
+                </div>
+                <div id="informacio">
+                    {{ personatge.nom }} també anomenat {{ personatge.altres_noms }} es un personatge de la mitologia
+                    {{ personatge.id_mitologia }} i és un {{ personatge.especie }} de la mateixa. Es caracteritza per
+                    {{ personatge.poder_arma }}. {{ personatge.text }}
+                </div>
+            </div>
+        </div>
+    {% endblock %}
+</body>
+</html>

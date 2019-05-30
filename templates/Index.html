@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Inici</title>
+        <link rel="stylesheet" type="text/css" href="../media/Index.css">
+        <script src="../media/Index.js"></script>
+    </head>
+    <body>
+    {% extends "Base.html" %}
+    {% block content %}
+        <div class="row">
+            <div class="col-9" id="contenidor">
+                <p>El personatge d'aquesta setmana es...</p>
+                <div id="text">
+                    <p>{{ personatges.nom }}</p>
+                </div>
+                <div id="imatge">
+                    <img alt="personatge" src={{ personatges.imatge }}/>
+                </div>
+                {% if request.user.username %}
+                    <a  href="{% url 'test' %}" class="btn btn-success" id="test">Fer test!</a>
+                {% else %}
+                    <a  href="{% url 'login' %}" class="btn btn-success" id="test">Fer test!</a>
+                {%  endif %}
+            </div>
+            <div class="col-3" id="search">
+                <div id="form">
+                    <input class="search_input" id="cerca" type="text" name="criteri" placeholder="Cerca...">
+                    <button class="btn btn-outline-success my-2 my-sm-0 search_icon" onclick="cercar()" type="submit">Cercar</button>
+                </div>
+                <div id="resultats" class="container h-100" style="overflow: auto;">
+                </div>
+            </div>
+        </div>
+    {% endblock %}
+    </body>
+</html>

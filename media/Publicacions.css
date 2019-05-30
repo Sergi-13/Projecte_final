@@ -1,0 +1,38 @@
+.row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding-left: 50px;
+}
+.personatge{
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: 1.5%;
+    width: 230px;
+    height: 300px;
+}
+.personatge a{
+    padding-bottom: 0;
+    width: 100%;
+    text-align: center;
+}
+.imatge {
+    width: 194px;
+    margin: 0;
+    padding: 0;
+}
+@media screen and (max-width: 480px) {
+    .row {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+    .personatge{
+        display: flex;
+        flex-wrap: wrap;
+        margin-right: 2.5%;
+        width: 230px;
+        height: 300px;
+    }
+}

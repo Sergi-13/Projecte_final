@@ -1,0 +1,16 @@
+.row {
+    margin-top: 10px;
+    margin-bottom: 50px;
+}
+#titol {
+    font-size: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+td {
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+#boto p {
+    margin-bottom: 2.5%
+}

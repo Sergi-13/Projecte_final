@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Test</title>
+        <script src="../media/Test.js"></script>
+    </head>
+    <body>
+        {% extends "Base.html" %}
+        {% block content %}
+            <div class="row">
+                <div class="col-lg-12 maincontent">
+                    <div class="col-xs-1" align="center" id="titol">Test</div>
+                    <div class="col-lg-12" align="left" id="taula">
+                        <form id="login-form" method="post" action="" enctype="multipart/form-data" role="form" style="display: block;">
+                            {% csrf_token %}
+                            {% if preguntes %}
+                                {% for pregunta in preguntes %}
+                                    <form method="POST" action="">
+                                        <p class="opcio">{{ pregunta.pregunta }}</p>
+                                        <label>
+                                            <input type="radio" name="opcio" value="{{ pregunta.opcio1 }}" id="opcio1">
+                                            {{ pregunta.opcio1 }}
+                                        </label>
+                                        <label>
+                                            <input type="radio" name="opcio" value="{{ pregunta.opcio2 }}" id="opcio2">
+                                            {{ pregunta.opcio2 }}
+                                        </label>
+                                        <label>
+                                            <input type="radio" name="opcio" value="{{ pregunta.resposta }}" id="opcio3">
+                                        </label>
+                                        {{ pregunta.resposta }}
+                                        <label>
+                                            <input type="radio" name="opcio" value="{{ pregunta.opcio3 }}" id="opcio4">
+                                            {{ pregunta.opcio3 }}
+                                        </label>
+                                    </form>
+                                    {% endfor %}
+                                    <br>
+                                    <input type="submit" value="Enviar" onclick="respondre()">
+                                <!--<form method="POST">
+                                    {% for pregunta in preguntes %}
+                                        <input type="radio" name="opcio" id="opcio" {{ forloop.counter }} value="{{ pregunta.id }}">
+                                        <label for="opcio{{ forloop.counter }}">
+                                            {{ opcio.opcio1 }}
+                                        </label> <br>
+                                    {% endfor %}
+                                    <input type="submit" value="Vote">
+                                </form>-->
+                            {% endif %}
+                        </form>
+                    </div>
+                </div>
+            </div>
+        {% endblock %}
+    </body>
+</html>

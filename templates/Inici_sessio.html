@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Inicar sessió</title>
+        <link rel="stylesheet" type="text/css" href="../media/Formularis.css"/>
+    </head>
+    <body>
+        {% extends "Base.html" %}
+        {% block content %}
+            <div class="row">
+                <div class="col-lg-12 maincontent">
+                    <div class="col-xs-1" align="center" id="titol">Inicia sessió</div>
+                    <div class="col-lg-12" align="left" id="taula">
+                        <form id="login-form" method="post" action="" enctype="multipart/form-data" role="form" style="display: block;">
+                            {% csrf_token %}
+                            <table class="col-xs-12" align="center">
+                                <tr>
+                                    <td class="dades">Usuari:</td>
+                                    <td class="form">{{ form.username }}</td>
+                                </tr>
+                                <tr>
+                                    <td class="dades">Contrsenya:</td>
+                                    <td class="form">{{ form.password }}</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2" align="center" id="boto">
+                                        <input type="submit" class="btn btn-primary" value="Inicia sessió">
+                                        <p>No tens compte? Crean una!</p>
+                                        <a  href="{% url 'registre' %}" class="btn btn-primary">Crea el teu compte!</a>
+                                    </td>
+                                </tr>
+                            </table>
+                            {{ form.errors }}
+                        </form>
+                    </div>
+                </div>
+            </div>
+        {% endblock %}
+    </body>
+</html>
