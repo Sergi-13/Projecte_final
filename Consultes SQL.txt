@@ -1,0 +1,35 @@
+SELECT Pregunta
+FROM Preguntes P
+WHERE P.Id_test = 2;
+/*Mostra totes les preguntes d'un test determinat,
+en aquest cas el test que té l'id 2*/
+
+SELECT COUNT(Id_Personatge) AS "Número de Presonatges Pubicats", Especie
+FROM Personatges
+GROUP BY Especie
+HAVING Id_Mitologia == 2
+/* Mostra un recompte dels personatges agupats per la seva especie si la 
+seva mitologia es la que té l'id 2 */
+
+SELECT COUNT(Id_Personatge) AS "Número de Presonatges Pubicats", Id_Mitologia
+FROM Personatges
+GROUP BY Id_Mitologia
+HAVING COUNT(Id_Personatge) > 2
+ORDER BY COUNT(Id_Personatge) DESC;
+/* Mostra un recompte de tots els personatges agrupats per mitologia, sempre que 
+n'hi hagi més de dos i els mostra en ordre descendent de major nombre a menor*/
+
+SELECT T.Id_Personatge
+FROM Test T
+inner join Preguntes P
+	on T.Id_Test = P.Id_Test
+
+--Mostra tots els test que tinguin preguntes
+
+SELECT distinct P.Nom_Personatges 
+FROM Test T
+right outer join Personatge P
+	on T.Id_Personatge = P.Id_Personatge
+WHERE T.Id_Test is null
+
+--Mostra tots els personatges dels quals no hi ha tests

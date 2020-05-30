@@ -1,0 +1,55 @@
+CREATE TABLE Mitologies (
+	Id_Mitologia int not null,
+	Nom_Mitologia varchar (100) not null,
+	Origen varchar (100) not null,
+	constraint Mitologia_pk
+		primary key(Id_Mitologia)
+);
+CREATE TABLE Personatges (
+	Id_Personatge int not null,
+	Nom_Personatge varchar (40) not null,
+	Especie varchar (40) not null,
+	Imatge_perfil varbinary(max) FILESTREAM not null,
+	Poder_arma varchar (200) null,
+	Text varchar(5000) not null,
+	Altres_noms varchar (100) null,
+	Data_Personatge datetime not null,
+	Id_Mitologia int not null,
+	contraint Personatge_pk
+		primary key(Id_Personatge),
+	constraint Mitologia_a_Personatge
+		foreign key (Id_Mitologia)
+		references Mitologies (Id_Mitologia)
+);
+CREATE TABLE Tests (
+	Id_Test int not null,
+	Data_test datetime not null,
+	Actiu bit,
+	Id_Personatge int not null,
+	constraint Test_pk
+		primary key (Id_Test),
+	constraint Personatge_a_Test
+		foreign key (Id_Personatge)
+		references Personatge (Id_Personatge)
+);
+CREATE TABLE Preguntes (
+	Id_Pregunta int not null,
+	Pregunta varchar(1500) not null,
+	Resposta varchar(150) not null,
+	Opcio1 varchar(150) not null,
+	Opcio2 varchar(150) not null,
+	Opcio3 varchar(150) not null,
+	Id_Test int not null,
+	constraint Preguntes_pk
+		primary key (Id_Pregunta),
+	constraint Test_a_Pregunta
+		foreign key (Id_Test)
+		references Tests (Id_Test)
+);
+CREATE TABLE Usuari (
+	Id_Usuari int not null,
+	Imatge_perfil varbinary(max) FILESTREAM null,	I
+	Monedes int not null,
+	constraint Usuari_pk
+		primary key(Id_Usauri)
+);
